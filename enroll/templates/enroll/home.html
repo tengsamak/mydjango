@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page Student Register</title>
+    <link rel="stylesheet" href="{% static '' %}enroll/css/bootstrap.css " />
+</head>
+<body>
+<div class= "container mt-5" >
+    <h2 class="text-center alert alert-danger" >Django Form input Data User Register</h2>
+    
+    
+<div class="row">
+    <div class="col-sm-4">
+        <h3 class="text-center alert alert-info">Register</h3>
+        <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="stuid" id="stuid"/>
+        {{form.as_p}}
+            <input type="button" class="btn btn-success" id="btnsave" value="Save">
+            <input type="button" class="btn btn-info" id="btnreset" value="Reset">
+        </form>
+        <img src="{% static '' %}enroll/images/apsara.jpg" alt="Thank!" class="rounded-circle" style="width:200px;height:300px;">
+        <div id="msg" class="alert alert-danger" style="display:none"></div>
+        
+
+    </div>
+        <div class="col-sm-8">
+            <h3 class="text-center alert alert-success">Table Display</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <td scope="col">ID</td>
+                    <td scope="col">Name</td>
+                    <td scope="col">Email</td>
+                    <td scope="col">Password</td>
+                    <td scope="col">Action</td>
+                </tr>
+                </thead>
+                <tbody id="tbody">
+                 {% for stu in stud %}
+                 <tr>
+    
+                     <td>{{stu.id}}</td>
+                     <td>{{stu.name}}</td>
+                     <td>{{stu.email}}</td>
+                     <td>{{stu.password}}</td>
+                     <td><input type="button" class="btn btn-info btn-edit" data-edit-id="{{stu.id}}" value="Edit">
+                         <input type="button" class="btn btn-danger btn-del" data-sid="{{stu.id}}" value="Delete">
+                     </td>
+                 </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+        </div>
+</div>
+    <script src="{% static '' %}enroll/js/jquery.js "></script>
+    <script src="{% static '' %}enroll/js/popper.js "></script>
+    <script src="{% static '' %}enroll/js/bootstrap.js "></script>
+    {% include "enroll/ajax.html" %}
+</body>
+</html>
