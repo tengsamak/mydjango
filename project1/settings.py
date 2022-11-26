@@ -30,10 +30,8 @@ SECRET_KEY = 'django-insecure-3@g6)25%oe0-2jp8ksgkr6nv78(w1u*+1lgw&w9@$!+h+p_5o=
 DEBUG = True
 
 ALLOWED_HOSTS = [
-        '127.0.0.1'
-        '*'
-
-
+        'mydjangoajax.herokuapp.com'
+        
     ]
 
 
