@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # add deploy
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,10 +123,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')                      #add for deploy
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')                      #add for deploy
 #STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)          #add for deploy
 
-django_heroku.settings(locals())                                #add for deploy
+#django_heroku.settings(locals())                                #add for deploy
 
 
 # Default primary key field type
