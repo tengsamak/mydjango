@@ -122,10 +122,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')                      #add for deploy
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)             #add for deploy
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')                      #add for deploy
+#STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)          #add for deploy
 
-django_heroku.settings(locals())                                    #add for deploy
+django_heroku.settings(locals())                                #add for deploy
 
 
 # Default primary key field type
